@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script-1</title>
+</head>
+
+<body>
+    <h1 id="heading">자바스크립트</h1>
+    <!-- 엘리먼트, 객체 -->
+    <p id="text">위 텍스트를 클릭해 보세요.</p>
+    <script>
+        // 이벤트 바인딩 : ~가 발생했을 때 ~ 하도록 하는 것
+        var heading = document.querySelector('#heading');
+        // document : 브라우저에서 반드시 생성되는 객체, 원래 window.document라고 적지만 window.는 생략 가능
+        // querySelector('#heading') : heading의 주소값을 불러옴
+        // querySelector -> 값 하나가 넘어감 : id값(#)을 많이 씀
+        // querySelectorAll ->  배열이 넘어감 : class값(.)을 많이 씀
+        heading.onclick = function () {
+            // onclick -> 속성
+            heading.style.color = 'red';
+            console.log(heading.style.color);
+            //클릭하면 <h1 id="heading" style="color: red";>자바스크립트</h1> 로 바꾸겠다는 뜻
+            // this : 객체화 된 자기자신
+            // this.style.color 라고 적으면 편함
+        }
+        heading.addEventListener('click', function() {
+            alert('클릭됐다.');
+        });
+    </script>
+</body>
+
+</html>

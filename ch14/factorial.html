@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>factorial</title>
+</head>
+
+<body>
+    <script>
+        var n = prompt('숫자를 입력하세요.');
+
+        /*
+        var result = 1;
+        var i = 1;
+
+        if (n === '') {
+            document.write('노 입력!');
+        } else if (n === null) {
+            document.write('취소되었습니다.');
+        } else {
+            while (i <= n) {
+                result *= i;
+                i++;
+            }
+            document.write(`${n}! = ${nFact}`);
+        }
+        */
+
+        if(n === null || n === '') {
+            document.write('노 입력!');
+        } else {
+            var cnt = Number(n);
+            if(cnt) {
+                var result = 1;
+                while(cnt > 0) {
+                    result = result * cnt;
+                    cnt--;
+                    // result *= cnt--;
+                }
+                document.write(`${n}! : ${result}`);
+            } else {
+                document.write('숫자만 입력해 주세요.');
+            }
+        }
+    </script>
+</body>
+
+</html>
