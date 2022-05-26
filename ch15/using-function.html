@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>using-function</title>
+</head>
+<body>
+    <script>
+        /*
+        function addNumber() {
+            // function addNumber(매개변수)
+            var n1 = 2;
+            var n2 = 3;
+            var sum = n1 + n2;
+            document.write(`결괏값 : ${sum}<br>`);
+        }
+        */
+        function addNumber(n1, n2) {
+        // 선언했지만 호출하지 않았기 때문에 undefined가 찍힌다
+        // function addNumber(undefined, undefined)가 되기 때문에 결괏값에 NaN가 출력됨
+            var sum = n1 + n2;
+            document.write(`결괏값 : ${sum}<br>`);
+            return; // 안적어도 자동으로 들어감
+        }
+        addNumber(10, 20);  // ->  결괏값 : 30
+        addNumber(1, 2, 5);  // -> 결괏값 : 3 (값을 2개만 받을 수 있기 때문에 5는 버려짐)
+        addNumber(100, 25);  // ->  결괏값 : 125
+    </script>
+</body>
+</html>

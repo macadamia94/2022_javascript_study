@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+        // p.536
+        // 즉시실행함수 : 익명 함수를 이름을 주지 않고 바로 실행 (함수자체가 이름이 됬다고 생각하면 됨)
+        (function() {
+            document.write('실행<br>');
+        })();
+
+        (function(val) {
+            document.write(`val : ${val}`);
+        })();
+    </script>
+</body>
+</html>

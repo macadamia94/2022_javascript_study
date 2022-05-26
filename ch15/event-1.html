@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <ul>
+		<li><a href="#" onclick="event.preventDefault(); alert('Green버튼을 클릭했습니다.')">Green</a></li>
+        <!-- a태그에 이벤트 할당하는 것은 그다지 추천하지 않음
+             a태그 본래의 이벤트를 취소하는 event.preventDefault();를 
+             또 넣어줘야하기 때문! 차리리 button태그에 넣는 것을 추천  -->
+		<li><a href="#" onclick="alert('Orange버튼을 클릭했습니다.')">Orange</a></li>
+		<li><a href="#" onclick="alert('Purple버튼을 클릭했습니다.')">Purple</a></li>
+	</ul>		
+</body>
+</html>
