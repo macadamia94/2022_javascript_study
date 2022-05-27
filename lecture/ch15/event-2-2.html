@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        #result {
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#" id="first_a">Green</a></li>
+        <li><a href="#" id="second_a">Orange</a></li>
+        <!-- onclick 방법 1 -->
+        <li><a href="#" onclick="changeBg('purple');">Purple</a></li>
+    </ul>
+    <div id="result"></div>
+
+    <script>
+        const resultDiv = document.querySelector('#result');
+
+        // onclick 방법 2
+        function changeBg(color) {
+            resultDiv.style.backgroundColor = color;
+        }
+
+        const firstA = document.querySelector('#first_a');
+        firstA.onclick = function (e) {
+            changeBg('green');
+        }
+
+        // onclick 방법 3
+        function bindFn() {
+            return function() { // return () => { 라고 적어도 됨
+                resultDiv.style.backgroundColor = 'orange';
+            }
+        }
+
+        /*
+        secondA.onclick = changeBg('Orange');
+            ↓ 같은 의미
+        function bindFn() {
+            return (function() {
+                resultDiv.style.backgroundColor = 'orange';
+            })();
+        }
+        */
+       
+        const secondA = document.querySelector('#second_a');
+        secondA.onclick = bindFn();
+                        // ↑↑ 여기에는 리턴함수 주소값이 들어가야함
+    </script>
+
+</body>
+
+</html>

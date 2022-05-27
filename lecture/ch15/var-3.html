@@ -15,6 +15,18 @@
             var y = 20;
         }
         displayNumber();
+        /*
+            출력
+            x is 10
+            y is undefined  ⇒ 호이스팅 때문에 아래와 같이 바뀌기 때문
+            
+            function displayNumber() {
+                var y;
+                console.log(`x is ${x}`);
+                console.log(`y is ${y}`);
+                y = 20;
+            }
+        */
     </script>
 </body>
 </html>
