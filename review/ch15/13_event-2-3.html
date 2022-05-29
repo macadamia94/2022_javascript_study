@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event-2</title>
+    <style>
+        #result {height: 300px;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" id="changeG">Green</a></li>
+        <li><a href="#" id="changeO">Orange</a></li>
+        <li><a href="#" id="changeP">Purple</a></li>
+    </ul>
+    <div id="result"></div>
+
+    <script>
+        const resultDiv = document.querySelector('#result');
+
+        function changeGreen() {
+            resultDiv.style.backgroundColor = 'green';
+        }
+        const changeG = document.querySelector('#changeG');
+        changeG.onclick = changeGreen;
+
+        function changeOrange() {
+            resultDiv.style.backgroundColor = 'orange';
+        }
+        const changeO = document.querySelector('#changeO');
+        changeO.onclick = changeOrange;
+
+        function changePurple() {
+            resultDiv.style.backgroundColor = 'purple';
+        }
+        const changeP = document.querySelector('#changeP');
+        changeP.onclick = changePurple;
+    </script>
+</body>
+</html>
