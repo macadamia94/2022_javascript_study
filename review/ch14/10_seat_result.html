@@ -11,14 +11,13 @@
             border-collapse: collapse;
         }
 
-        table,
+        tr,
         td {
             border: 1px solid #ccc;
         }
 
         td {
             padding: 5px;
-            font-size: 0.9rem;
             text-align: center;
         }
     </style>
@@ -27,21 +26,17 @@
 <body>
     <h1>자리 배치도</h1>
     <script>
-        var memNum = Number(prompt('입장객 수'));
+        const memNum = prompt('입장객 수');
+
         if (memNum > 0) {
-            // memNum < 0 경우는 빈칸이거나 숫자 이외를 입력했을 때
-            var colNum = 6;
-            var rowNum = Math.ceil(memNum / colNum);
+            const colNum = 6;
+            const rowNum = Math.ceil(Number(memNum) / Number(colNum));
             document.write('<table>');
-            var seatNo = 1;
-            for (var i = 0; i < rowNum; i++) {
+            let seatNo = 1;
+            for (let i = 1; i <= rowNum; i++) {
                 document.write('<tr>');
-                for (var j = 1; j <= colNum; j++) {
-                    /*
-                    var seatNo2 = i * colNum + j;
-                    document.write(seatNo2<=memNum ? `<td> 좌석 ${seatNo2} </td>` : '<td></td>');
-                    */
-                    document.write(seatNo <= memNum ? `<td> 좌석 ${seatNo++} </td>` : '<td></td>');
+                for (let j = 1; j <= colNum; j++) {
+                    document.write(seatNo <= memNum ? `<td>좌석 ${seatNo++}</td>` : `<td></td>`);
                 }
                 document.write('</tr>');
             }
