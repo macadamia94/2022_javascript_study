@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splice</title>
+</head>
+<body>
+    <script>
+        const mine = [0, 1, 2, 3];
+        // splice는 양 끝 값보다 중간 값을 추가, 삭제 할 때 많이 사용
+
+        console.log('---------- insert');
+        mine.splice(2, 0, 5); // 2번 자리에 지우는 값 없이 5를 넣음
+        console.log(mine.toString()); // → output : 0,1,5,2,3
+        mine.splice(1, 0, 11, 12);
+        console.log(mine.toString()); // → output : 0,11,12,1,5,2,3
+
+        console.log('---------- delete');
+        mine.splice(2, 1); // 2번 자리부터 1개 삭제
+        console.log(mine.toString()); // → output : 0,11,1,5,2,3
+        mine.splice(4, 2); // 4번 자리부터 2개 삭제
+        console.log(mine.toString()); // → output : 0,11,1,5
+
+        console.log('---------- update');
+        mine.splice(1, 1, 30); // 1번 자리부터 1개 삭제, 1번자리에 30 추가
+        console.log(mine.toString()); // → output : 0,30,1,5
+
+        console.log('---------- push');
+        const pushArr = [10, 20, 30, 40];
+        pushArr.splice(pushArr.length, 0, 50); // 오른쪽 끝 50을 추가
+        console.log(pushArr.toString()); // → output : 10,20,30,40,50
+        
+        console.log('---------- pop');
+        const popArr = [10, 20, 30, 40, 50];
+        popArr.splice(popArr.length - 1, 1); // 오른쪽 끝 값을 삭제
+        console.log(popArr.toString()); // → output : 10,20,30,40
+
+        console.log('---------- unshift');
+        const unshiftArr = [10, 20, 30, 40, 50];
+        unshiftArr.splice(0, 0, 60); // 왼쪽 맨 앞에 60을 추가
+        console.log(unshiftArr.toString()); // → output : 60,10,20,30,40,50
+
+        console.log('---------- shift');
+        const shiftArr = [10, 20, 30, 40, 50];
+        shiftArr.splice(0, 1); // 왼쪽 맨 앞에 있는 값을 삭제
+        console.log(shiftArr.toString()); // → output : 20,30,40,50
+    </script>
+</body>
+</html>

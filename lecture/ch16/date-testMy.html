@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date-test</title>
+</head>
+<body>
+    <script>
+        function timeForToday(value) {
+            const today = new Date();
+            const timeValue = new Date(value);
+
+            const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
+            if (betweenTime < 1) return '방금전';
+            if (betweenTime < 60) {
+                return `${betweenTime}분전`;
+            }
+
+            const betweenTimeHour = Math.floor(betweenTime / 60);
+            if (betweenTimeHour < 24) {
+                return `${betweenTimeHour}시간전`;
+            }
+
+            const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+            if (betweenTimeDay < 30) {
+                return `${betweenTimeDay}일전`;
+            }
+
+            const betweenTimeMonth = Math.floor(betweenTime / 60 / 24 / 30);
+            if (betweenTimeMonth < 12) {
+                return `${betweenTimeMonth}달전`;
+            }
+
+            const year = timeValue.getFullYear();
+            const mon = fillZero(timeValue.getMonth() + 1);
+            const date = fillZero(timeValue.getDate());
+            return `${year}-${mon}-${date}`;
+
+            function fillZero(val) {
+                return ('0' + val).slice(-2);
+            }
+        }
+        const result = timeForToday('2022-05-30 16:14:10');
+        console.log(result);
+    </script>
+</body>
+</html>

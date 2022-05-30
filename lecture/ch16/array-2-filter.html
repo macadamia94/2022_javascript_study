@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+</head>
+<body>
+    <script>
+        const arr = [4, 20, 55, 32, 99, 47, 65, 1];
+        /* 
+        const arr2 = arr.filter(item => {
+            if(item < 40) { return true; }
+            return item < 40;
+        }); 
+        */
+        const arr2 = arr.filter(item => item < 40);
+        // arrow 함수는 parameter가 한 개일 경우 ()생략가능 / return 생략가능
+        console.log(arr); 
+        console.log(arr2);
+
+        const arr3 = arr.filter(item => !(item % 2));
+        console.log(arr3);
+    </script>
+</body>
+</html>

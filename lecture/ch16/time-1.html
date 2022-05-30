@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time-1</title>
+</head>
+<body>
+    <script>
+        const now = new Date();
+        const now2 = new Date();
+        now.myFn = function() {
+            alert('dd');
+        } // 프로퍼티와 메서드 작성
+        now.myFn();
+        // now2.myFn(); // now2에는 myFn이 추가되어 있지 않기 때문에 에러가 뜸
+        document.write('현재 시각은 ' + now.toLocaleString());
+        // + : 타입이 다르면 문자열로 강제 형변환을 시켜서 문자열 합치기가 일어남
+        // now.toString() : 메소드, 비void함수
+    </script>
+</body>
+</html>
