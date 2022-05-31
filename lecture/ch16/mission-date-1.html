@@ -10,6 +10,9 @@
     <script>
         const now = new Date();
         const writedDay = new Date('2022-01-10 13:27:00');
+        
+        const result = getPassedInfo(writedDay, now);
+        console.log(result);
 
         //1~59분 전 => 3,540
         //1~23시간 전 => 82800 (59분을 초로 환산해서 더해주면 더 좋음)
@@ -44,10 +47,6 @@
         function fillZero(val) {            
             return ('0' + val).slice(-2);
         }
-
-        const result = getPassedInfo(writedDay, now);
-        console.log(result);
-
     </script>
 </body>
 </html>

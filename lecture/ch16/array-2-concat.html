@@ -9,13 +9,17 @@
 <body>
     <script>
         const arr = ['A', 'B', 'C'];
+        const arr2 = ['D', 'E'];
         // const →　상수 : 한번 입력되면 변화하지 않는 값
         // arr = []; →　arr에는 arr에 접근할 수 있는 주소값이 저장됨
-        const arr2 = arr.concat(['D', 'E']);
-        console.log(arr2);
-        console.log(arr);
-        console.log(['D','E'].concat(arr));
+        const arr3 = arr.concat(arr2); // 원본은 건드리지 않고 새로운 배열을 만듬
+        console.log(arr3); // → output : ['A', 'B', 'C', 'D', 'E']
+        console.log(arr2); // → output : ['D', 'E']
+        console.log(arr); // → output : ['A', 'B', 'C']
+        console.log(arr2.concat(arr)); // → output : ['D', 'E', 'A', 'B', 'C']
 
+        const arr4 = [...arr, ...arr2];  // Spread Opertor(스프레드 연산자)
+        console.log(arr4); // → output : ['A', 'B', 'C', 'D', 'E']
 
     </script>
 </body>

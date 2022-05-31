@@ -11,12 +11,11 @@
         const numbers = ['A', 'B', 'C', 'D'];
 
         for (let i = 0; i < numbers.length; i++) {
-            document.write(`<div>${numbers[i]}</div>`);
+            document.write(`<div>${numbers[i]}</div>`); // 배열에 인덱스를 보냄
         }
 
-        // 콜백함수
         document.write('<hr>');
-        numbers.forEach(function(item) {
+        numbers.forEach(function(item) { // 콜백함수를 보냄
             document.write(`<div>${item}</div>`);
         });
         // forEach : 메소드(소괄호 있기 때문)

@@ -8,8 +8,10 @@
 </head>
 <body>
     <script>
-        const now = new Date();
-        console.log(now);
+        const now = new Date(); // new 키워드를 사용해서 Date객체 생성
+        console.log(now);  // → output : Tue May 31 2022 10:40:02 GMT+0900 (한국 표준시)
+        // Date객체는 .toString() 를 굳이 적지 않아도 log 안에서 .toString() 메소드를 호출해서 문자열로 찍힘
+        console.dir(now);
         const date1 = new Date('2020-05-30 01:00:20');
         console.log(date1);
 
