@@ -9,7 +9,47 @@
 <body>
     <script>
         Math.PI = 1.1; // 은닉화 되지도 않았지만 PI의 값이 바뀌지 않음
-        console.log(Math.PI);
+        console.log(Math.PI);  // → output : 3.141592653589793
+        console.log(Math.ceil(12.1));  // → output : 13
+        console.log(Math.round(12.1));  // → output : 12
+        console.log(Math.round(12.5));  // → output : 13
+        console.log(Math.floor(12.9));  // → output : 12
+        console.log(Math.random());  // → output : 0~1 사이의 실수
+        console.log(Math.floor(Math.random()));  // → output : 0
+
+        //0~9 random
+        const rVal = Math.floor(Math.random() * 10);
+        console.log(rVal);
+
+        //1~9 random
+        const rVal2 = Math.floor(Math.random() * 9) + 1;
+                   // Math.ceil(Math.random() * 9);
+        console.log(rVal2);
+        
+        /* 
+        // random 함수 확인용
+        while(true) {
+            const rVal2 = Math.ceil(Math.random() * 9);
+                       // Math.floor(Math.random() * 9) + 1;
+
+            if(rVal2 < 1 || rVal2 > 9) {
+                console.log('잘 못 만들었음!!');
+                break;
+            }
+        }
+         */
+
+        //10~20
+        const rVal3 = Math.floor(Math.random() * 11) + 10;
+        console.log(rVal3);
+
+        //25~50
+        const rVal4 = Math.floor(Math.random() * 26) + 25;
+        console.log(rVal4);
+
+        //25~40
+        const rVal5 = Math.floor(Math.random() * 16) + 25;
+        console.log(rVal5);
     </script>
 </body>
 </html>
