@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try_catch</title>
+</head>
+<body>
+    <script>
+        try {
+            console.log('AAAA'); // 실행 O
+            const result = new Array(-1); // 에러발생지점 
+            console.log('BBBB'); // 실행 X
+        } catch(e) {
+            console.error('catch : ' + e.name); // 실행 O
+        }
+
+        console.log('(1) try_catch 끝');
+        console.log('----------');
+
+        try {
+            console.log('AAAA'); // 실행 O
+            console.log('BBBB'); // 실행 O
+            console.log('CCCC'); // 실행 O
+        } catch(e) {
+            console.error(e.name); // 실행 X
+        }
+
+        console.log('(2) try_catch 끝');
+        console.log('----------');
+
+        try {
+            console.log('AAAA'); // 실행 O
+            const result = new Array(-1); // 에러발생지점 
+            console.log('BBBB'); // 실행 X
+        } catch(e) {
+            console.error('catch : ' + e.name); // 실행 O
+        } finally {
+            console.log('무조건 실행 됨!'); // 실행 O
+        }
+
+        console.log('(3) try_catch 끝');
+        console.log('----------');
+
+        console.log('finally : X, return : O');
+        function fn1() {
+            try {
+                const div = 10 / 2;
+                return div;
+            } catch(e) {
+                console.log(e);
+            }
+            console.log('무조건 실행해야 하는 소스');
+            return 0;
+        }
+        const fn1Result = fn1();
+        console.log(fn1Result);
+
+        console.log('finally : O, return : O');
+        function fn2() {
+            try {
+                const div = 10 / 2;
+                return div;
+            } catch(e) {
+                console.log(e);
+            } finally {
+                console.log('무조건 실행해야 하는 소스');
+            }
+            return 0;
+        }
+        const fn2Result = fn2();
+        console.log(fn2Result);
+
+        console.log('(4) try_catch_finally 끝');
+        console.log('----------');
+    </script>
+</body>
+</html>
