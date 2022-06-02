@@ -11,15 +11,18 @@
 </head>
 <body>
     <button id="btnOpen">창 열기</button>
-    <button onclick="moveWin()">창 이동</button>
+    <button onclick="moveWin();">창 이동</button>
     <button id="btnClose">창 닫기</button>
     <div id="back"></div>
     <script>
         console.log('name : ' + window.name);
         const btnOpen = document.querySelector('#btnOpen');
-        let newWin = null;
+        let newWin = null; // 여기 null을 적은 이유는 앞으로 객체 주소값이 들어갈 것을 예고한 것 
         btnOpen.addEventListener('click', () => {
             newWin = open('notice.html', '알림', 'width=500', 'height=400');
+            if (newWin === null) {
+                alert('차단을 풀어주세요!!!');
+            }
         });
 
         const btnClose = document.querySelector('#btnClose');
@@ -34,6 +37,8 @@
 
         function moveWin() {
             newWin.moveTo(0, 0);
+            // 창열기를 하지 않고 창이동을 클릭하게 되면 newWin = null 이기 때문에 
+            // 에러가 발생하게 된다 (→ null인 상태에서 메소드를 호출했기 때문에 에러발생)
         }
     </script>
 </body>

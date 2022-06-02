@@ -8,14 +8,16 @@
 </head>
 <body>
     <p>현재 시각 <span id="current" class="display"></span></p>
+    <button onclick="stopInter();">멈춰!!</button>
     <script>
         let cnt = 0;
-        setInterval(displayNow, 1000);
-        
-        function displayNow() {
-            const now = new Date(); 
+        const interObj = setInterval(function () {
+            const now = new Date();
             document.querySelector('#current').innerHTML = now.toLocaleTimeString();
-            // document.querySelector('#current').append("<b>안녕</b>"); // 계속 쌓이게 됨
+        }, 1000);
+
+        function stopInter() {
+            clearInterval(interObj);
         }
     </script>
 </body>

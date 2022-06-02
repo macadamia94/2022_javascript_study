@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setAttr</title>
+    <style>
+        #main { width: 500px; height: 300px; }
+        #main > img { width: 100%; }
+        #sub { width: 500px; height: 100px; display: flex; }
+        #sub > img { flex-grow: 1; }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE">
+    </div>
+    <div id="sub">
+        <img src="https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE">
+        <img src="https://i.picsum.photos/id/372/500/300.jpg?hmac=UbDW6XQjwlIQmhGnAK1dXhZK5dO-_0Zhore0lDQRiZI">
+        <img src="https://i.picsum.photos/id/227/500/300.jpg?hmac=CoajO3VCvNVdFy6SYLOh_d_oVsEUXTuxZBSfFexioXU">
+    </div>
+    <script>
+        const imgMain = document.querySelector('#main > img');
+        // console.log(imgMain);
+        const subImgs = document.querySelectorAll('#sub > img');
+        // console.log(subImgs);
+
+        subImgs.forEach(item => {
+            item.onclick = function() {
+                imgMain.src = item.src; // 클로저(closure)로 만든 함수
+            }              // this.src; 도 가능 
+            
+            /*
+            item.onclick = () => {
+                imgMain.src = item.src; // arrow함수로 만들때는 this.src; 는 사용할 수 없다
+            } 
+            */
+        });
+
+        /* 
+        for (let i = 0; i < subImgs.length; i++) {
+            subImgs[i].addEventListener('click', changePic);
+        }
+
+        function changePic() {
+            const newPic = this.src;
+            imgMain.setAttribute('src', newPic);
+        } 
+        */
+    </script>
+</body>
+</html>

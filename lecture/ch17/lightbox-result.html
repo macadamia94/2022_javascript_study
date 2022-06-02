@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lightbox-result</title>
+    <style>
+        ul { list-style: none; }
+        li { display: inline-block; }
+        .pic { width: 200px; cursor: pointer; }
+        #lightbox { 
+            height: 100%; 
+            background-color: #00000088; 
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        #lightbox > img { border: 2px solid #fff; }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <ul>
+            <li><img class="pic" src="https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/372/500/300.jpg?hmac=UbDW6XQjwlIQmhGnAK1dXhZK5dO-_0Zhore0lDQRiZI"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/227/500/300.jpg?hmac=CoajO3VCvNVdFy6SYLOh_d_oVsEUXTuxZBSfFexioXU"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/637/500/300.jpg?hmac=Mtg8jubKZLRTQnRHgAQ4RICugyrOFk4RAQyxMU48PLU"></li>
+        </ul>
+    </div>
+    <div id="lightbox">
+        <img id="lightboxImage" src="https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE">
+    </div>
+    <script>
+        const pics = document.querySelectorAll('.pic');
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImage = lightbox.querySelector('#lightboxImage');
+
+        function showLightbox() {
+            const bigLocation = this.src;
+            lightboxImage.setAttribute('src', bigLocation);
+            lightbox.style.display = 'flex';
+        }
+
+        pics.forEach(item => {
+            item.addEventListener('click', showLightbox);
+            // item.onclick = showLightbox;
+        });
+
+        lightboxImage.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+        // lightbox.onclick = function () {
+        //     lightbox.style.display = 'none';
+        // }
+    </script>
+</body>
+</html>

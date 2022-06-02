@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event3</title>
+</head>
+<body>
+    <img src="https://i.picsum.photos/id/1073/500/300.jpg?hmac=4C_sw-fLd-YkAZNrBTK8F3ggw-CXQmvMz4NMK2kZy6Q" 
+    id="book">
+    <script>
+        const imgBook = document.querySelector('#book');
+        imgBook.onclick = function(e) { // event객체 : 이벤트가 발생했을 당시의 정보가 모두 들어있음
+            console.log(`이벤트 유형 : ${e.type}, 발생위치 : ${e.pageX}, ${e.pageY}`);
+            console.log(e.altKey); // alt키 누른 상태에서 이벤트가 발생했으면 true 아니면 false
+            console.log(e.target);
+        }
+    </script>
+</body>
+</html>

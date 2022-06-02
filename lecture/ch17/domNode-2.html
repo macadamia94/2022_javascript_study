@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domNode2</title>
+</head>
+<body>
+    <div id="container">
+        <h1>DOM을 공부합시다.</h1>
+        <a href="#" onclick="addP(); this.onclick='';">더보기</a>
+        <!-- this.onclick=''; 를 넣어서 onclick연결을 끊음 -->
+        <!-- this.onclick=''; 를 지우면 계속 추가됨 -->
+        <div id="info"></div>
+    </div>
+    <script>
+        let cnt = 1;
+        const divInfo = document.querySelector('#info');
+        function addP() {
+            if(divInfo.innerHTML === '') {
+                const newP = document.createElement('p'); // 위치는 지정하지 않았지만 p태그를 한 개 만듬 (메모리상에 존재)
+                const txt = `DOM은 document object model의 줄임말입니다.${cnt++}`; // 문자열을 넣어놓음 (메모리상에 존재)
+                // const txtNode = document.createTextNode(txt); // 텍스트노드를 만듬 (메모리상에 존재)
+                newP.appendChild(txtNode); // 자식이 있다면 뒷쪽에 붙이라는 뜻 만약 자식이 없다면 제일 위에 붙임
+                // <p>DOM은 document object model의 줄임말입니다.</p> 를 메모리상에 만든 상태
+                document.querySelector('#info').appendChild(newP); // info 뒤에 붙임
+                // <div id="info"><p>DOM은 document object model의 줄임말입니다.</p></div>
+                // appendChild() : 괄호안에 객체만 들어갈 수 있음                
+            } else {
+                divInfo.innerHTML = null;
+                // divInfo.innerText = null; 가능
+            }
+
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getAttr</title>
+</head>
+<body>
+    <div id="prod-pic">
+        <button onclick="changePic();">이미지 바꾸기</button><br>
+        <img src="https://i.picsum.photos/id/772/500/300.jpg?hmac=W20UfrBiyYigmFK9RCv-fZ2EkLoukmM3m5a7_Rzel3I" alt="동굴"
+            id="cave" width="200" height="200" onclick="displaySrc();" abc="안녕">
+    </div>
+    <script>
+        const cave = document.querySelector('#cave');
+        function changePic() {
+            // 누구의. 무엇을 = '어떤값으로'
+            // cave.src = 'https://i.picsum.photos/id/1015/500/300.jpg?hmac=x_H5Zlok5ZrJs5-3kPaXBRXUo2MToFKOOlMYaiuJ6TU'
+
+            // 누구의.setAttribute('무엇을', '어떤값으로')
+            cave.setAttribute('src', 'https://i.picsum.photos/id/1015/500/300.jpg?hmac=x_H5Zlok5ZrJs5-3kPaXBRXUo2MToFKOOlMYaiuJ6TU')
+        }
+        function displaySrc() {
+            console.log('getAttr : ' + cave.getAttribute('src'));
+            // getAttribute('값') : 값을 읽어주는 메소드, 원래제공하지 않는 추가한 속성도 읽을 수 있음
+            console.log('.abc : ' + cave.getAttribute('abc')); // → output : 안녕
+            console.log('.abc : ' + cave.abc); // → output : undefined
+            console.log('.src : ' + cave.src); // 원래 제공해주는 속성은 점(.)으로 읽어 올 수 있음
+            console.log('.alt : ' + cave.alt);
+            console.log('.id : ' + cave.id);
+            console.log('.width : ' + cave.width);
+            console.log('.height : ' + cave.height);
+            console.log('.onclick : ' + cave.onclick);
+        }
+    </script>
+</body>
+</html>

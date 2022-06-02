@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event5</title>
+</head>
+<body>
+    <img id="cover" src="https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE">
+    <script>
+        const imgCover = document.querySelector('#cover');
+        imgCover.addEventListener('mouseover', function() {
+            this.src = 'https://i.picsum.photos/id/372/500/300.jpg?hmac=UbDW6XQjwlIQmhGnAK1dXhZK5dO-_0Zhore0lDQRiZI'
+        })
+
+        imgCover.addEventListener('mouseout', function() {
+            this.src = 'https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE'
+        })
+    </script>
+</body>
+</html>

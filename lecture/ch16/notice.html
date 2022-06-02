@@ -10,11 +10,11 @@
     <button id="btnClose">창 닫기</button>
     <script>
         console.log(window.name);
-        opener.changeBack();
+        opener.changeBack(); // opener : notice를 열어 준 부모
 
         const btnClose = document.querySelector('#btnClose');
         btnClose.addEventListener('click', () => {
-           window.close();
+            window.close();
         });
     </script>
 </body>
