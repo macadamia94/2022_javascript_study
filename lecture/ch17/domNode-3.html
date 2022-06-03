@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domNode3</title>
+</head>
+<body>
+    <h1>DOM을 공부합시다.</h1>
+    <button onclick="addContents2();">더 보기</button>
+    <div id="info"></div>
+    <script>
+        const imgSrc = 'https://i.picsum.photos/id/521/500/300.jpg?hmac=6GO9YUpGPijckdqszJs2XrAOD3dDhtdVQXHkMRphjRE'
+        const imgAlt = '이미지 정보'
+
+        const divInfo = document.querySelector('#info');
+
+        // 방법 1
+        function addContents() {                                                // 11행 '더 보기' 버튼을 클릭할때마다 호출됨
+            const newP = divInfo.appendChild(document.createElement('p'));      // const newP = document.createElement('p');    
+            /*                                                                  // divInfo.appendChild(newP);
+            '더 보기' 한 번 클릭했을 때 12행변화 
+            <div id="info">
+                <p></p>
+            </div> 
+            */                                                                                
+            newP.append('DOM은 document object model의 줄임말입니다.');
+            /* 
+            '더 보기' 한 번 클릭했을 때 12행변화 
+            <div id="info">
+                <p>DOM은 document object model의 줄임말입니다.</p>
+            </div> 
+            */
+            const newImg = divInfo.appendChild(document.createElement('img'));
+            newImg.src = imgSrc;
+            newImg.alt = imgAlt;
+        }
+
+        // 방법 2
+        function addContents2() {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <p>DOM은 document object model의 줄임말입니다.</p>
+                <img src="${imgSrc}" alt="${imgAlt}">
+            `;
+            divInfo.appendChild(div);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodeCreate</title>
+    <style>
+        * { box-sizing:border-box; }
+        #container {  
+            width:500px;
+            margin:20px auto;
+            padding:20px;
+        }
+        input[type="text"] {
+            width:280px;
+            float:left;
+            height:30px;
+            padding-left:15px;
+        }
+        input[type="button"] {
+            width:90px;
+            height:30px;
+            float:right;
+            background:#222;
+            color:#fff;
+        }
+
+        .c_pointer { cursor: pointer; }
+        .parent { clear: both; padding-left:15px; padding-top: 10px; display: flex; }
+        .parent > .content { flex-grow: 1;}
+        .parent > .close { width: 15px; padding-right: 30px; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Web Programming</h1>
+        <p>공부할 주제를 기록해 보세요.</p>
+        <div>
+            <input type="text" id="subject" autofocus>
+            <input type="button" value="삭제" onclick="delSubject();">
+            <input type="button" value="추가" onclick="newReg();">
+        </div>
+        <div id="itemList"></div>
+    </div>
+
+    <script>
+        // 문서 해석할 시 딱 한 번만 실행
+        // 딱 한 번만 실행하기 때문에 let을 넣어도 상관없음
+        const inputSubject = document.querySelector('#subject');    // const inputSubject = document.querySelector('#subject').value; 
+                                                                    // 위와 같이 넣으면 document.querySelector('#subject')에 아무값도 들어있지 않기 때문에 
+                                                                    // inputSubject에 빈칸만 들어가게 된다.
+        const divItemList = document.querySelector('#itemList');
+
+        // '추가' 버튼이 클릭될 때마다 실행
+        function newReg() {
+            const txt = inputSubject.value; // 객체 접근방법 : 주소값.
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('parent');
+            newDiv.innerHTML = `
+                <div class="content">${txt}</div>
+                <div class="close c_pointer">X</div>
+            `;
+            
+            divItemList.appendChild(newDiv);
+            const divClose = newDiv.querySelector('.close');
+            divClose.addEventListener('click', function() {
+                // newDiv.remove();
+                this.parentElement.remove(); //this.remove(); 라고 적으면 X 만 삭제됨
+            })
+
+            inputSubject.value="";
+        }
+
+        function delSubject() {
+            divItemList.remove();
+            /*
+            const pList = divItemList.querySelectorAll('p');
+            pList[pList.length - 1].remove();
+            */
+        }
+    </script>
+</body>
+</html>

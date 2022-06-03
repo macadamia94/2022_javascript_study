@@ -28,15 +28,21 @@
         // console.log(subImgs);
 
         subImgs.forEach(item => {
+            item.addEventListener('click', () => {
+                imgMain.setAttribute('src', item.getAttribute('src'));
+            }) ;
+        /*    
+        subImgs.forEach(item => {
             item.onclick = function() {
                 imgMain.src = item.src; // 클로저(closure)로 만든 함수
             }              // this.src; 도 가능 
-            
-            /*
-            item.onclick = () => {
-                imgMain.src = item.src; // arrow함수로 만들때는 this.src; 는 사용할 수 없다
-            } 
-            */
+        });
+        */    
+        /*
+        item.onclick = () => {
+            imgMain.src = item.src; // arrow함수로 만들때는 this.src; 는 사용할 수 없다
+        } 
+        */
         });
 
         /* 

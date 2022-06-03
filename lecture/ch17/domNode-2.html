@@ -19,17 +19,18 @@
         const divInfo = document.querySelector('#info');
         function addP() {
             if(divInfo.innerHTML === '') {
-                const newP = document.createElement('p'); // 위치는 지정하지 않았지만 p태그를 한 개 만듬 (메모리상에 존재)
-                const txt = `DOM은 document object model의 줄임말입니다.${cnt++}`; // 문자열을 넣어놓음 (메모리상에 존재)
-                // const txtNode = document.createTextNode(txt); // 텍스트노드를 만듬 (메모리상에 존재)
-                newP.appendChild(txtNode); // 자식이 있다면 뒷쪽에 붙이라는 뜻 만약 자식이 없다면 제일 위에 붙임
-                // <p>DOM은 document object model의 줄임말입니다.</p> 를 메모리상에 만든 상태
-                document.querySelector('#info').appendChild(newP); // info 뒤에 붙임
-                // <div id="info"><p>DOM은 document object model의 줄임말입니다.</p></div>
-                // appendChild() : 괄호안에 객체만 들어갈 수 있음                
+                // const newP = document.createElement('p');                        // 위치는 지정하지 않았지만 p태그를 한 개 만듬 (메모리상에 존재)
+                // divInfo.appendChild(newP);                                       // <div id="info"><p>DOM은 document object model의 줄임말입니다.</p></div>
+                const newP = divInfo.appendChild(document.createElement('p'));      // appendChild() : 괄호안에 객체만 들어갈 수 있음, 주소값 return함 
+                                                                                    //                  → 22,23행처럼 따로 쓰지 않고 24행처럼 한줄로 사용 가능
+                const txt = `DOM은 document object model의 줄임말입니다.${cnt++}`;   // 문자열을 넣어놓음 (메모리상에 존재)
+                // const txtNode = document.createTextNode(txt);                    // 텍스트노드를 만듬 (메모리상에 존재)
+                newP.append(txt);                                                   // 자식이 있다면 뒷쪽에 붙이라는 뜻 만약 자식이 없다면 제일 위에 붙임
+                                                                                    // <p>DOM은 document object model의 줄임말입니다.</p> 를 메모리상에 만든 상태
+                // console.log(newP);
             } else {
-                divInfo.innerHTML = null;
-                // divInfo.innerText = null; 가능
+                divInfo.innerText = null;
+                // divInfo.innerHTML = null; 가능
             }
 
 

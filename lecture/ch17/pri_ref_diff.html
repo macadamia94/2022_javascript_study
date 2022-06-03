@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pri_ref_diff</title>
+</head>
+<body>
+    <script>
+        let num = 10;   // Primitive Type(원시 타입) → 주소값이 아닌 값 그 자체를 저장
+        const objBox = {    // objBox에 객체를 1개 만들고 그 안에 속성(num)은 1개
+            num: 10         // objBox에는 객체의 주소값을 줌
+        };
+
+        function changeNum(n) { //num 과 n은 별개
+            n = 30;
+         // num = 30 이라고 추가하면 23행은 num : 30이 됨
+        }
+
+        console.log(`num : ${num}`); // → num : 10
+        changeNum(num);
+        console.log(`num : ${num}`); // → num : 10
+
+        console.log('----------');
+
+        function changeObjNum(o) {  // o와 objBox는 다른 변수지만 같은 값을 가지고 있을 뿐
+         // o = { num: 10 } // 이렇게 적으면 o와 objBox가 다른 값을 가지게 된다
+            o.num = 30;
+        }
+
+        console.log(`objBox.num : ${objBox.num}`); // → objBox.num : 10
+        changeObjNum(objBox);
+        console.log(`objBox.num : ${objBox.num}`); // → objBox.num : 30
+    </script>
+</body>
+</html>
