@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_push_unshift</title>
+</head>
+<body>
+    <script>
+        // toString : 배열에서 지정한 부분을 문자열로 return (각 요소는 쉼표(,)로 구분)
+        const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+        console.log(arr);
+        console.log(arr.toString());
+
+        // push : 배열의 맨 끝에 새로운 요소를 추가한 후 새로운 length를 return
+        // 원본 파괴형
+        // retrun 값 : length
+        console.log('----------push----------');
+        arr.push(100);
+        console.log(arr.toString());
+
+        // unshift : 배열의 시작 부분에 새로운 요소를 추가
+        // 원본 파괴형
+        // retrun 값 : length
+        console.log('----------unshift----------');
+        arr.unshift(90);
+        console.log(arr.toString());
+    </script>
+</body>
+</html>

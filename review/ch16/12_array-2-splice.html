@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_splice</title>
+</head>
+<body>
+    <script>
+        // splice : 배열에서 특정한 부분만 잘라냄
+
+        console.log('-----insert-----');
+        const mine = [0, 1, 2, 3];
+        console.log('원본 : ' + mine.toString());
+
+        // .splice(인덱스 번호, 삭제여부, 넣을 값)
+        mine.splice(2, 0, 5);
+        console.log(mine.toString());
+        mine.splice(1, 0, 11, 12);
+        console.log(mine.toString());
+
+        console.log('-----delete-----');
+        const mine2 = [0, 1, 2, 3];
+        console.log('원본 : ' + mine2.toString());
+
+        // .splice(인덱스 번호, 삭제할 값 갯수)
+        mine2.splice(2, 1);
+        console.log(mine2.toString());
+
+        console.log('-----update-----');
+        const mine3 = [0, 1, 2, 3];
+        console.log('원본 : ' + mine3.toString());
+
+        // .splice(인덱스 번호, 삭제할 값 갯수, 추가할 값)
+        mine3.splice(1, 1, 30);
+        console.log(mine3.toString());     
+
+        console.log('-----push-----');
+        const pushArr = [10, 20, 30, 40];
+        console.log('원본 : ' + pushArr.toString());
+        console.log('length : ' + pushArr.length);
+        
+        // .splice(인덱스 번호, 삭제여부, 넣을 값)
+        pushArr.splice(pushArr.length, 0, 50);
+        console.log(pushArr.toString());
+
+        console.log('-----pop-----');
+        const popArr = [10, 20, 30, 40, 50];
+        console.log('원본 : ' + popArr.toString());
+        console.log('length : ' + popArr.length);
+
+        // .splice(인덱스 번호, 삭제할 값 갯수)
+        popArr.splice(popArr.length - 1, 1);
+        console.log(popArr.toString());
+
+        console.log('-----unshift-----');
+        const unshiftArr = [10, 20, 30, 40, 50];
+        console.log('원본 : ' + unshiftArr.toString());
+
+        // .splice(인덱스 번호, 삭제여부, 넣을 값)
+        unshiftArr.splice(0, 1, 60);
+        console.log(unshiftArr.toString());
+
+        console.log('-----shift-----');
+        const shiftArr = [10, 20, 30, 40, 50];
+        console.log('원본 : ' + shiftArr.toString());
+
+        // .splice(인덱스 번호, 삭제할 값 갯수)
+        shiftArr.splice(0, 1);
+        console.log(shiftArr.toString());
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_indexOf</title>
+</head>
+<body>
+    <script>
+        // indexOf : 주어진 값과 일치하는 값이 있는 배열 요소의 첫 인덱스를 찾음
+        const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+        // 배열 안에 해당 값이 있는지 확인
+        const idx = arr.indexOf(3);
+        console.log(idx);
+
+        const lastIdx = arr.lastIndexOf(3);
+        console.log(lastIdx);
+
+        // 파일 확장명 뽑아낼 때도 사용
+        const fileNm = 'abcsef.fff.jpg';
+        const lastDotIdx = fileNm.lastIndexOf('.');
+        console.log('lastDotIdx : ' + lastDotIdx);
+    </script>
+</body>
+</html>
