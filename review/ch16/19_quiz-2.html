@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 시간 popup</title>
+</head>
+<body>
+    <button id="open">현재시간보기</button>
+    <script>
+        const btnOpen = document.querySelector('#open');
+        const openCenter = (doc, win, w, h) => {
+            const left = (screen.availWidth-w) / 2;
+            const top = (screen.availHeight-h) / 2;
+            const opt = `left=${left}, top=${top}, width=${w}, height=${h}`;
+            window.open(doc, win, opt);
+        }
+        btnOpen.addEventListener('click', () => {
+            openCenter('19_quiz-1.html', '', 400, 200);
+            // open('19_quiz-1.html', '', 'width=400', 'height=200');
+        })
+    </script>
+</body>
+</html>

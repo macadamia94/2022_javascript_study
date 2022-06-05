@@ -14,11 +14,13 @@
         document.write(numbers);
 
         document.write('<hr>');
+        // for문 사용
         for(let i=0; i<numbers.length; i++) {
             document.write(`<div>${numbers[i]}</div>`);
         }
 
         document.write('<hr>');
+        // forEach 사용
         numbers.forEach(item => document.write(`<div>${item}</div>`));
     </script>
 </body>

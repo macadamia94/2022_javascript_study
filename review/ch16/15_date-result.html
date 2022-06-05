@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getDate</title>
+</head>
+<body>
+    <script>
+        const now = new Date();
+        const firstDay = new Date('02/25/2020');
+
+        const passedTime1 = now - firstDay;
+        const passedTime2 = Math.round(passedTime1 / (1000 * 60 * 60 * 24));
+        document.write(`${firstDay.toLocaleString()}부터 현재까지 ${passedTime2}일이 지났습니다.<br>`);
+
+        const toNow = now.getTime();
+        const toFirst = firstDay.getTime();
+        const passedTime3 = toNow - toFirst;
+        const passedTime4 = Math.round(passedTime1 / (1000 * 60 * 60 * 24));
+        document.write(`${firstDay.toLocaleString()}부터 현재까지 ${passedTime4}일이 지났습니다.<br>`);
+    </script>
+</body>
+</html>
