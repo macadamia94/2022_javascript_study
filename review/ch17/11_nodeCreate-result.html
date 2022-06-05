@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Create</title>
+    <style>
+        * { box-sizing: border-box; }
+        #container { width: 500px; margin: 20px auto; padding: 20px; }
+        #subject { width: 280px; float: left; height: 30px; padding-left: 30px; }
+        .btn { width: 90px; height: 30px; float: right; background: #222; color: #fff; border: none; }
+        .c_pointer { cursor: pointer; }
+        .parent { clear: both; padding-left:15px; padding-top: 10px; display: flex; }
+        .parent > .content { padding-left: 20px; flex-grow: 1;}
+        .parent > .close { width: 15px; padding-right: 50px; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Web Programming</h1>
+        <p>공부할 주제를 기록해 보세요</p>
+        <form>
+          <input type="text" id="subject" autofocus>
+          <input type="button" class="btn" value="삭제" onclick="delSubject();">
+          <input type="button" class="btn" value="추가" onclick="newReg();">
+        </form>
+        <div id="itemList"></div>  
+    </div>
+    <script>
+        const inputSubject = document.querySelector('#subject');
+        const divItemList = document.querySelector('#itemList');
+
+        newReg = () => {
+            const txt = inputSubject.value;
+            const newDiv = divItemList.appendChild(document.createElement('div'));
+
+            newDiv.classList.add('parent');
+            newDiv.innerHTML = `
+                <div class="content">${txt}</div>
+                <div class="close c_pointer">X</div>
+            `;
+
+            const divClose = newDiv.querySelector('.close');
+            divClose.onclick = () => divClose.parentElement.remove();
+
+            inputSubject.value = '';
+        }
+
+        delSubject = () => divItemList.remove();
+    </script>
+</body>
+</html>

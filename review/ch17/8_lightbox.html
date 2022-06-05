@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Box</title>
+    <style>
+        .row { width: 420px; margin: 0 auto; }
+        .row > ul { list-style: none; margin: 0; padding: 0; }
+        .row > ul > li { display: inline-block; }
+        .pic { width: 130px; cursor: pointer; }
+        #lightbox {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: #00000070;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #lightboxImage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%, -50%); 
+            border: 5px solid #eee;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <ul>
+            <li><img class="pic" src="../../book/17/images/tree-1.jpg"></li>
+            <li><img class="pic" src="../../book/17/images/tree-2.jpg"></li>
+            <li><img class="pic" src="../../book/17/images/tree-3.jpg"></li>
+            <li><img class="pic" src="../../book/17/images/tree-4.jpg"></li>
+            <li><img class="pic" src="../../book/17/images/tree-5.jpg"></li>
+            <li><img class="pic" src="../../book/17/images/tree-6.jpg"></li>
+        </ul>
+    </div>
+    <div id="lightbox">
+        <img id="lightboxImage" src="../../book/17/images/tree-1.jpg">
+    </div>
+    <script>
+        const pics = document.querySelectorAll('.pic');
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImg = lightbox.querySelector('#lightboxImage')
+
+        function showLightbox() {
+            lightboxImg.src = this.src;
+            lightbox.style.display = 'flex';
+        }
+        pics.forEach(item => item.onclick = showLightbox);
+        lightboxImg.onclick = () => lightbox.style.display = 'none';
+    </script>
+</body>
+</html>

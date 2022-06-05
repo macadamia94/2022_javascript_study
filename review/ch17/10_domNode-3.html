@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Node3</title>
+</head>
+<body>
+    <h1>DOM을 공부합시다.</h1>
+    <button onclick="addContents2();">더 보기</button>
+    <div id="info"></div>
+    <script>
+        const divInfo = document.querySelector('#info');
+        const imgSrc = '../../book/17/images/dom.jpg';
+        const imgAlt = '돔트리 예제 이미지';
+        addContents2 = () => {
+            const newP = divInfo.appendChild(document.createElement('p'));
+            const newImg = divInfo.appendChild(document.createElement('img'));
+            newP.append(`DOM은 Document Object Model의 줄임말 입니다.`);
+            newImg.src = imgSrc;
+            newImg.alt = imgAlt;
+        }
+    </script>
+</body>
+</html>

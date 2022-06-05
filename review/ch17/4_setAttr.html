@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setAttr</title>
+    <style>
+        #main { width: 500px; height: 500px; }
+        #main > img { width: 100%; }
+        #sub { width: 500px; height: 150px; display: flex; }
+        #sub > img { flex-grow: 1; }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="../../book/17/images/coffee-pink.jpg">
+    </div>
+    <div id="sub">
+        <img src="../../book/17/images/coffee-pink.jpg">
+        <img src="../../book/17/images/coffee-blue.jpg">
+        <img src="../../book/17/images/coffee-gray.jpg">
+    </div>
+    <script>
+        const mainImg = document.querySelector('#main > img');
+        const subImg = document.querySelectorAll('#sub > img');
+
+        subImg.forEach(item => {
+            item.addEventListener('click', () => {
+                mainImg.setAttribute('src', item.getAttribute('src'));
+            });
+        })
+    </script>
+</body>
+</html>

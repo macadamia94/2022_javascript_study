@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event5</title>
+</head>
+<body>
+    <img src="../../book/17/images/easys-1.jpg" id="cover">
+    <script>
+        const imgCover = document.querySelector('#cover');
+        imgCover.addEventListener('mouseover', () => imgCover.src = '../../book/17/images/easys-2.jpg');
+        imgCover.addEventListener('mouseout', () => imgCover.src = '../../book/17/images/easys-1.jpg');
+    </script>
+</body>
+</html>

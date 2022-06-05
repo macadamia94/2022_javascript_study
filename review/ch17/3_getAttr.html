@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getAttr</title>
+</head>
+<body>
+    <div id="prod-pic">
+        <button onclick="changePic();">이미지 바꾸기</button><br><br>
+        <img src="../../book/17/images/cup-1.png" alt="빨간 컵" 
+            id="redCup" width="200" height="200" onclick="displaySrc();" abc="안녕">
+    </div>
+    <script>
+        const cup = document.querySelector('#redCup');
+        changePic = () => cup.setAttribute('src', '../../book/17/images/cup-2.png');
+
+        displaySrc = () => {
+            console.log('getAttr : ' + cup.getAttribute('src'));
+            console.log('.abc : ' + cup.abc);
+            console.log('.src : ' + cup.src);
+            console.log('alt : ' + cup.alt);
+            console.log('alt : ' + cup['alt']);
+            console.log('.id : ' + cup.id);
+            console.log('width : ' + cup.width);
+            console.log('height : ' + cup.height);
+            console.log('.onclick : ' + cup.onclick);
+        }
+    </script>
+</body>
+</html>
