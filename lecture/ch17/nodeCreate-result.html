@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nodeCreate</title>
+    <title>nodeCreate1</title>
     <style>
         * { box-sizing:border-box; }
         #container {  
@@ -49,6 +49,13 @@
                                                                     // 위와 같이 넣으면 document.querySelector('#subject')에 아무값도 들어있지 않기 때문에 
                                                                     // inputSubject에 빈칸만 들어가게 된다.
         const divItemList = document.querySelector('#itemList');
+
+        inputSubject.addEventListener('keyup', function(e) {
+            // console.log(e.keyCode);
+            if(e.keyCode === 13) {
+                newReg();
+            }
+        });
 
         // '추가' 버튼이 클릭될 때마다 실행
         function newReg() {

@@ -31,6 +31,13 @@
         const inputSubject = document.querySelector('#subject');
         const divItemList = document.querySelector('#itemList');
 
+        inputSubject.addEventListener('keyup', function(e) {
+            // console.log(e.keyCode);
+            if(e.keyCode === 13) {
+                newReg();
+            }
+        });
+
         newReg = () => {
             const txt = inputSubject.value;
             const newDiv = divItemList.appendChild(document.createElement('div'));

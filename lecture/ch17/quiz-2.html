@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2</title>
+    <style>
+        input[type = 'number'] { width: 50px; margin-bottom: 10px;}
+        table, td{ border-collapse: collapse; border: 1px solid #000; }
+        td { padding: 5px; }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="number" id="rowNum">행
+        <input type="number" id="colNum">열
+        <button id="makeTable">작성</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        const divResult = document.querySelector('#result');
+        const inputRow = document.querySelector('#rowNum');
+        const inputCol = document.querySelector('#colNum');
+        const makeTable = document.querySelector('#makeTable');
+
+        makeTable.addEventListener('click' , function() {
+            const rowNum = inputRow.value;
+            const colNum = inputCol.value;
+            const newTable = document.createElement('table');
+            divResult.innerHTML = '';
+            divResult.append(newTable);
+
+            for (let i = 0; i < rowNum; i++) {
+                const newTr = document.createElement('tr');
+                newTable.append(newTr);
+                for (let j = 0; j < colNum; j++) {
+                    const newTd = document.createElement('td');
+                    newTr.append(newTd);
+                    newTd.innerText = `${i}, ${j}`;
+                }
+            }
+        }) 
+
+    </script>
+</body>
+</html>

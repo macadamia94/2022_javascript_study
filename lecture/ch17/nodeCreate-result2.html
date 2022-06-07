@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nodeCreate</title>
+    <title>nodeCreate2</title>
     <style>
         * { box-sizing:border-box; }
         #container {  
@@ -35,7 +35,7 @@
 <body>
     <div id="container">
         <h1>Web Programming</h1>
-        <p>공부할 주제를 기록해 보세요.</p>
+        <p>공부할 주제를 기록해 보세요. ver.2</p>
         <div>
             <input type="text" id="subject" autofocus>
             <input type="button" value="삭제" onclick="delSubject();">
@@ -52,6 +52,13 @@
                                                                     // inputSubject에 빈칸만 들어가게 된다.
         const divItemList = document.querySelector('#itemList');
 
+        inputSubject.addEventListener('keyup', function(e) {
+            // console.log(e.keyCode);
+            if(e.keyCode === 13) {
+                newReg();
+            }
+        });
+
         // '추가' 버튼이 클릭될 때마다 실행
         function newReg() {
             const txt = inputSubject.value; // 객체 접근방법 : 주소값.
@@ -66,6 +73,7 @@
             const divClose = newDiv.querySelector('.close');
             divClose.addEventListener('click', function() {
                 // newDiv.remove();
+                // divClose.parentElement.remove();
                 this.parentElement.remove(); //this.remove(); 라고 적으면 X 만 삭제됨
             })
 
