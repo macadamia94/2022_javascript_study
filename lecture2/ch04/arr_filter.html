@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array_filter</title>
+</head>
+<body>
+    <script>
+        // 배열 값을 수정할 수 없지만 조건에 맞는 값을 걸러낸다
+        const arr = [10, 43, 22, 38, 17, 56, 47];
+        const arr2 = arr.filter(function(item, idx) {
+            if(item % 2 === 0) {
+                return true;
+            } // else { return false } 를 안 적어도 됨 
+              // return undefined가 되기 때문에
+        });
+        console.log(arr.toString());
+        console.log(arr2.toString());
+
+        const arr3 = arr.filter(function(item,idx) {
+            if(idx % 2 === 0) {
+                return true;    // true를 의미하는 것이면 뭐든 입력가능
+            }
+        });
+        console.log(arr3.toString());
+    </script>
+</body>
+</html>
