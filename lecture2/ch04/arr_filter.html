@@ -8,21 +8,27 @@
 </head>
 <body>
     <script>
-        // 배열 값을 수정할 수 없지만 조건에 맞는 값을 걸러낸다
+        // 배열 값을 수정할 수 없지만 조건에 맞는 값을 걸러낸다 (length가 줄어들 수 있음)
         const arr = [10, 43, 22, 38, 17, 56, 47];
         const arr2 = arr.filter(function(item, idx) {
+            return item % 2 === 0;
+            /*
             if(item % 2 === 0) {
                 return true;
             } // else { return false } 를 안 적어도 됨 
               // return undefined가 되기 때문에
+            */
         });
         console.log(arr.toString());
         console.log(arr2.toString());
 
         const arr3 = arr.filter(function(item,idx) {
+            return idx % 2 === 0;
+            /*
             if(idx % 2 === 0) {
                 return true;    // true를 의미하는 것이면 뭐든 입력가능
             }
+            */
         });
         console.log(arr3.toString());
     </script>
