@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+<body>
+    <script>
+        // map : 주어진 배열 값들을 오름차순으로 접근해서 콜백함수를 통해 새로운 값을 정의하고 신규배열을 만듦
+        const arr = [10, 43, 22, 38, 17, 56, 47];
+        console.log(arr.toString());
+
+        const arr2 = arr.map(item => item + 2);
+        console.log(arr2.toString());
+
+        const arr3 = arr.map(item => item % 2 === 0 ? item * 2 : item);
+        console.log(arr3.toString());
+    </script>
+</body>
+</html>

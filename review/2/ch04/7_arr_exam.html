@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam</title>
+</head>
+<body>
+    <script>
+        const myArr = {
+            '0' : 10,
+            '1' : 43,
+            '2' : 22,
+            '3' : 38,
+            '4' : 17,
+            '5' : 56,
+            '6' : 47,
+            'length' : 7,
+            'forEach' : function(cb) {
+                for(let i=0; i<this.length; i++) {
+                    cb(this[i], i);
+                }
+            },
+            'map' : function(cb) {
+                const tempArr = [];
+                for(let i=0; i<this.length; i++) {
+                    tempArr.push(cb(this[i], i));
+                }
+                return tempArr;
+            },
+            'filter' : function(cb) {
+                const tempArr = [];
+                for(let i=0; i<this.length; i++) {
+                    cb(this[i]) ? tempArr.push(this[i]) : false;
+                }
+                return tempArr;
+            },
+            'toString' : function(cb) {
+                let str = '[';
+                for(let i=0; i<this.length; i++) {
+                    str += i < this.length -1 ? `${this[i]}, ` : `${this[1]}]`;
+                }
+                return str;
+            }
+        }
+
+        console.log('-----forEach-----');
+        let sum = 0;
+        function fnSum(item, idx, arr) {
+            sum += item;
+        }
+        myArr.forEach(fnSum);
+        console.log(`sum : ${sum}`);
+
+        console.log('-----map-----');
+        const arr = myArr.map(function (item, idx) {
+            return item + 5;
+        });
+        console.log(arr.toString());
+
+        console.log('-----filter-----');
+        const arr2 = myArr.filter(function (item) {
+            return item % 2 === 0;
+        });
+        console.log(arr2.toString());
+
+        console.log('-----toString-----');
+        console.log(myArr.toString());
+    </script>
+</body>
+</html>
