@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <script>
+        // 콜백함수를 쓰는 근본적 이유는 호출하기 위해서
+        function pMethod(resolve, reject) {
+            reject('1111');
+        }
+        const p1 = new Promise(pMethod);
+
+        function resolveMethod(result) {
+            console.log(`resolveMethod : ${result}`);
+        }
+
+        function catchMethod(result) {
+            console.log(`catchMethod : ${result}`);
+        }
+
+        // Promise 객체 : then, catch
+        p1.then(resolveMethod); // 예외가 발생하지 않고 정상적으로 처리할 경우
+        p1.catch(catchMethod); // 예외가 발생할 경우
+    </script>
+</body>
+</html>

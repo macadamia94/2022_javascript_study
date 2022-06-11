@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+</head>
+<body>
+    <script>
+        // XML은 장점이 없음
+        // JSON( Javascript Object Notaion )
+        // 자바스크립에서 객체 만들때 사용하는 문법으로 데이터를 표현
+
+        /*
+            userVo_1 : (내 컴퓨터의 메모리)주소값
+            userVo_1를 통신으로 서버(백엔드)에 그냥 보내도 의미가 없음
+            그래서 문자열로 변경해서 서버로 보내고 서버에서 다시 객체로 변경해서 사용
+            (클라이언트)userVo_1 → 문자열로 변경(JSON)　→ 문자열로 변경한 userVo_1 → (서버)userVo_1 → 다시 객체로 변경(JSON)
+        */
+        const userVo_1 = {
+            'name' : '신사임당',
+            'age' : 20,
+            'addr' : '대구'
+        };
+
+        const userVo_2 = {
+            'name' : '이순신',
+            'age' : 22,
+            'addr' : '진해'
+        };
+
+        console.log(userVo_1);
+        console.log(userVo_2);
+        console.log(userVo_1.addr);
+        const json1 = JSON.stringify(userVo_1); // 객체를 문자열로 변경
+        console.log(json1);
+        const obj = JSON.parse(json1);  // 문자열을 객체로 변경
+        console.log(obj);
+    </script>
+</body>
+</html>
