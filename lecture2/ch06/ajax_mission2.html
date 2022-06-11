@@ -47,12 +47,19 @@
         function makeList(data) {
             data.forEach(function(item) {
                 const img = makePoster(item);
-                ulList.append(img);
+                ulList.appendChild(img);
             });
         }
 
         function makePoster(item) {
-
+            const newLi = document.createElement('li');
+            newLi.innerHTML = `
+                <div class="img" style="background-image: url('${item.download_url}');"></div>
+                <div class="info">
+                    <strong class="author">${item.author}</strong>
+                </div>
+            `;
+            return ulList.appendChild(newLi);
         }
     </script>
 </body>
