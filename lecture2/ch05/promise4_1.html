@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise4</title>
+</head>
+<body>
+    <script>
+        function fn1() {
+            return new Promise(function (resolve) {
+                resolve(10);
+            });
+        }
+
+        function fn2(val) {
+            return new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve(val * 2);
+                    //return val * 2;
+                }, 2000);
+            });
+        }
+
+        /*
+        function fn2(val) {
+            setTimeout(function () {
+                resolve(val * 2);
+            }, 2000);
+        }
+
+        const result = fn2(10);
+        console.log(result);    // → output : undefined
+        // fn2(val)의 setTimeout을 기다리지 않고 바로 line.27~28행이 실행되기 때문에 결과값이 undefined
+        */
+
+        const result = fn2(10);
+        result.then(function(val) {
+            console.log(val); 
+        });
+    </script>
+</body>
+</html>

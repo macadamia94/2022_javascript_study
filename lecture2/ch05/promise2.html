@@ -9,14 +9,20 @@
 <body>
     <script>
         const p1 = new Promise(function (resolve, reject) {
-            resolve('1111');
+            reject('1111');
         });
 
 
-        p1.then(function (result) {
+        const p2 = p1.then(function (result) {
             console.log(`resolveMethod : ${result}`);
         });
-        p1.catch(function (result) {
+        p2.catch(function (result) {
+            console.log(`catchMethod : ${result}`);
+        });
+
+        const p3 = p1.then(function (result) {
+            console.log(`resolveMethod : ${result}`);
+        }).catch(function (result) {
             console.log(`catchMethod : ${result}`);
         });
     </script>

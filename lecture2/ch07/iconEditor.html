@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iconEditor</title>
+</head>
+<body>
+    <script>
+        function elt(name, attr) {
+            const node = document.createElement(name);
+            if (attr) {
+                for (const item in attr) {
+                    if (attr.hasOwnProperty(item)) {
+                        node.setAttribute(item, attr[item]);
+                    }
+                }
+            }
+            return node;
+        }
+
+        function createIconEditor(parent, nx, ny) {
+            // color input
+            const inputColor = elt('input', { type: 'color' });
+            parent.appendChild(inputColor);
+
+            // All Clear Button
+            const btnAllClear = elt('input', { type: 'button', value: 'All Clear' });
+            parent.appendChild(btnAllClear);
+
+            // table
+            const table = elt('table');
+            parent.appendChild(table);
+
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '10px';
+
+            for (let i = 0; i < ny; i++) {
+                const tr = elt('tr');
+                table.appendChild(tr);
+
+                for (let z = 0; z < nx; z++) {
+                    const td = elt('td');
+                    // var td = elt('td'); 
+                    // var를 쓰면 호이스팅이 발생해서 어느 td를 클릭해도 마지막 td가 클릭됨
+                    tr.appendChild(td);
+
+                    td.style.width = td.style.height = '15px';
+                    td.style.border = '1px solid #000';
+
+                    td.addEventListener('click', function(e) {
+                        console.log(td.style.backgroundColor);
+                        console.log(inputColor.value);
+                        if(td.style.backgroundColor === '') {
+                            td.style.backgroundColor = inputColor.value;    // e.target.style.backgroundColor = inputColor.value;
+                        } else {                                            // e.target : 이벤트가 발생한 나 자신
+                            td.style.backgroundColor = ''                   // var 때문에 호이스팅이 일어날 시 자주 사용
+                        }
+                    });
+                }
+            }
+        }
+
+        /*
+        createIconEditor(document.body, 10, 5);
+
+        function ColorToHex(color) {
+            var hexadecimal = color.toString(16);
+            return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
+        }
+
+        function ConvertRGBtoHex(red, green, blue) {
+            return "#" + ColorToHex(red) + ColorToHex(green) + ColorToHex(blue);
+        }
+        console.log(ConvertRGBtoHex(255, 100, 200));
+        */
+    </script>
+</body>
+</html>

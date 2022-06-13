@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try_catch</title>
+</head>
+<body>
+    <script>
+        // 에러발생 가능성이 높은 것을 try_catch문에 넣어줌
+        // 반드시 try 와catch를 함께 써야함 (finally는 옵션)
+        // try 안에서 에러발생지점 이후부터는 실행되지 않는다 (try_catch문 밖은 상관없음)
+        // finally는 에러 발생 상관 없이 실행됨
+        // 에러발생시 실행하고 싶은 것이 있다면 catch에 적어주면 됨
+        try {
+            console.log('AAAA');
+            const result = new Array(-1);
+            console.log('BBBB');
+        } catch(e) {
+            console.error('catch : ' + e.name); // 실행됨!!!
+        }
+        
+        console.log('(1) try_catch 끝');
+        console.log('----------');
+
+        try {
+            console.log('AAAA');
+            console.log('BBBB');
+            console.log('CCCC');
+        } catch(e) {
+            console.error(e.name);  // 실행 안 됨!!!
+        }
+
+        console.log('(2) try_catch 끝');
+        console.log('----------');
+
+        try {
+            console.log('AAAA');
+            const result = new Array(-1);
+            console.log('BBBB');
+        } catch(e) {
+            console.error('catch : ' + e.name); // 실행됨!!!
+        } finally {
+            console.log('무조건 실행 됨!');
+        }
+
+        console.log('(3) try_catch 끝');
+        console.log('----------');
+    </script>
+</body>
+</html>

@@ -9,8 +9,13 @@
 <body>
     <script>
         // 콜백함수를 쓰는 근본적 이유는 호출하기 위해서
+        const success = true;
         function pMethod(resolve, reject) {
-            reject('1111');
+            if (success) {
+                resolve('1111');
+            } else {
+                reject('2222');
+            }
         }
         const p1 = new Promise(pMethod);
 
@@ -25,6 +30,7 @@
         // Promise 객체 : then, catch
         p1.then(resolveMethod); // 예외가 발생하지 않고 정상적으로 처리할 경우
         p1.catch(catchMethod); // 예외가 발생할 경우
+        // p1.then(resolveMethod).catch(catchMethod);
     </script>
 </body>
 </html>
