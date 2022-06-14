@@ -21,24 +21,12 @@
         }
 
         function createIconEditor(parent, nx, ny) {
-            const cells = [];
             // color input
             const inputColor = elt('input', { type: 'color' });
             parent.appendChild(inputColor);
 
             // All Clear Button
             const btnAllClear = elt('input', { type: 'button', value: 'All Clear' });
-            btnAllClear.addEventListener('click', function(e) {
-                /*
-                const tdList = document.querySelectorAll('td');
-                tdList.forEach(function(item) {
-                    item.style.backgroundColor = '';
-                });
-                */
-               cells.forEach(function(item) {
-                    item.style.backgroundColor = '';
-               });
-            });
             parent.appendChild(btnAllClear);
 
             // table
@@ -56,26 +44,39 @@
                     const td = elt('td');
                     // var td = elt('td'); 
                     // var를 쓰면 호이스팅이 발생해서 어느 td를 클릭해도 마지막 td가 클릭됨
-                    cells.push(td);
                     tr.appendChild(td);
 
                     td.style.width = td.style.height = '15px';
                     td.style.border = '1px solid #000';
 
                     td.addEventListener('click', function(e) {
-                        if(e.target.style.backgroundColor === '' || e.target.color16 !== inputColor.value) {
+
+                        if(e.target.style.backgroundColor === '') {
                             e.target.style.backgroundColor = inputColor.value;
-                            e.target.color16 = inputColor.value;
                         } else {
-                            e.target.style.backgroundColor = '';
+                            const rgbToHex = convertRGBtoHex(e.target.style.backgroundColor);
+
+                            if(inputColor.value === rgbToHex) {
+                                e.target.style.backgroundColor = '';
+                            } else {
+                                e.target.style.backgroundColor = inputColor.value;
+                            }
                         }
                     });
-
-                    // btnAllClear.addEventListener('click', function() {
-                    //     td.style.backgroundColor = '';
-                    // });
                 }
             }
+        }
+        function convertRGBtoHex(rgb) {
+            if(rgb === '') {
+                return '';
+            }
+            const colors = rgb.substring(rgb.indexOf('(') + 1, rgb.lastIndexOf(')')).split(/,\s*/);
+            return '#' + colorToHex(colors[0]) + colorToHex(colors[1]) + colorToHex(colors[2]);
+        }
+
+        function colorToHex(color) {
+            const hexadecimal = parseInt(color, 10).toString(16);
+            return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
         }
 
         createIconEditor(document.body, 10, 5);
