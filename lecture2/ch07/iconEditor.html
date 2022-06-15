@@ -21,6 +21,7 @@
         }
 
         function createIconEditor(parent, nx, ny) {
+            // btnAllClear 방법 2
             const cells = [];
             // color input
             const inputColor = elt('input', { type: 'color' });
@@ -29,15 +30,23 @@
             // All Clear Button
             const btnAllClear = elt('input', { type: 'button', value: 'All Clear' });
             btnAllClear.addEventListener('click', function(e) {
+                // btnAllClear 방법 3
+                cells2.forEach(function(item) {
+                    item.style.backgroundColor = '';
+                });
                 /*
+                // btnAllClear 방법 1
                 const tdList = document.querySelectorAll('td');
                 tdList.forEach(function(item) {
                     item.style.backgroundColor = '';
                 });
                 */
+               /*
+               // btnAllClear 방법 2
                cells.forEach(function(item) {
                     item.style.backgroundColor = '';
                });
+               */
             });
             parent.appendChild(btnAllClear);
 
@@ -61,11 +70,18 @@
 
                     td.style.width = td.style.height = '15px';
                     td.style.border = '1px solid #000';
-
+                    
+                    // let cs = ''; // 클로저(closure)
                     td.addEventListener('click', function(e) {
-                        if(e.target.style.backgroundColor === '' || e.target.color16 !== inputColor.value) {
+                        /*
+                        if(e.target.style.backgroundColor === '' || cs !== inputColor.value) {
                             e.target.style.backgroundColor = inputColor.value;
-                            e.target.color16 = inputColor.value;
+                            cs = inputColor.value;
+                        */    
+                        if(e.target.style.backgroundColor === '' || e.target.color16 !== inputColor.value) {
+                            // 젤 첨에는 color16속성도 없고 backgroundColor === '' 
+                            e.target.style.backgroundColor = inputColor.value;
+                            e.target.color16 = inputColor.value; // color16속성이 들어가려면 한 번 클릭을 당해야함
                         } else {
                             e.target.style.backgroundColor = '';
                         }
@@ -79,6 +95,8 @@
         }
 
         createIconEditor(document.body, 10, 5);
+        // btnAllClear 방법 3
+        let cells2 = document.querySelectorAll('td');
     </script>
 </body>
 </html>
